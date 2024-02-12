@@ -4,13 +4,9 @@ A tool for managing music streamer song libraries.
 
 ## Inspiration
 
-I do weekly music streams alternating through a variety of instruments and
-games.
+I do weekly music streams alternating through a variety of instruments and games.
 
-To take audience requests, I use [StreamerSongList](https://www.streamersonglist.com).
-However, as great a tool as it is, it doesn't support managing multiple
-libraries, so I have to swap everything out between streams. SSL does have a
-song import/export tool and an API.
+To take audience requests, I use [StreamerSongList](https://www.streamersonglist.com). However, as great a tool as it is, it doesn't support managing multiple libraries, so I have to swap everything out between streams. SSL does have a song import/export tool and an API.
 
 ## Design Notes
 
@@ -49,6 +45,14 @@ Additional down-the-road support might be added for:
 - Rocksmith+
 - Fortnite Festival
 
+Because we're mashing together multiple sources with their own grammar rules, we also need to support...
+
+***Filtering Rules***
+
+- Capitalization - e.g. only capitalize "the", "with", "of", "on" if they're the first word in the artist or title
+- Cover songs - Some songs in Rock Band are soundalike covers and need to be tagged as such
+- Disable artists - Feed in a custom config list of artists I refuse to play on stream
+- Unify definite articles - e.g. is the band name "Go-Go's" or "The Go-Go's"? The various games don't agree. Support an internal, static list, but also a user config to add additional rules
 
 ## Installation
 
