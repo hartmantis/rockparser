@@ -44,7 +44,7 @@ module Rockparser
       end
 
       %w[guitar bass].each do |i|
-        opts.on("-rs2014#{i[0]}", "--rocksmith-2014-#{i}", "Mark songs for #{i} in Rocksmith 2014 as active') do |p|
+        opts.on("-rs2014#{i[0]}", "--rocksmith-2014-#{i}", "Mark songs for #{i} in Rocksmith 2014 as active") do |p|
           options[:"rocksmith_2014_#{i}"] = true
         end
       end
