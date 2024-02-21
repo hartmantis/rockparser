@@ -5,11 +5,7 @@ require_relative '../../lib/rockparser/song'
 
 RSpec.describe Rockparser::Song do
   let(:obj) do
-    o = described_class.new
-    o.instance_variable_set(:@artist, '"Weird Al" Yankovic')
-    o.instance_variable_set(:@title, 'My Own Eyes')
-    o.instance_variable_set(:@genre, 'Novelty')
-    o
+    described_class.new('"Weird Al" Yankovic', 'My Own Eyes')
   end
 
   describe '.initialize' do
@@ -21,12 +17,40 @@ RSpec.describe Rockparser::Song do
       expect(obj.title).to eq('My Own Eyes')
     end
 
-    it 'correctly sets the song genre' do
-      expect(obj.genre).to eq('Novelty')
+    it 'defaults the genre to nil' do
+      expect(obj.genre).to eq(nil)
+    end
+
+    it 'defaults the instruments to an empty set' do
+      expect(obj.instruments).to eq({})
     end
 
     it 'defaults the song to inactive' do
       expect(obj.active?).to eq(false)
+    end
+  end
+
+  describe '#artist' do
+    it 'returns the artist name' do
+      expect(obj.artist).to eq('"Weird Al" Yankovic')
+    end
+  end
+
+  describe '#title' do
+    it 'returns the song title' do
+      expect(obj.title).to eq('My Own Eyes')
+    end
+  end
+
+  describe '#genre' do
+    it 'returns the song genre' do
+      expect(obj.genre).to eq(nil)
+    end
+  end
+
+  describe '#instruments' do
+    it 'returns the song instrument set' do
+      expect(obj.instruments).to eq({})
     end
   end
 end

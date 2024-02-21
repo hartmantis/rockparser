@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-# require_relative 'song/cfsm'
-# require_relative 'song/dclquickplay'
-
-module Rockparser
+module Rockparser 
   class Song
-    attr_reader :artist, :title, :genre
+    attr_reader :artist, :title, :genre, :instruments
 
-    def initialize
+    def initialize(artist, title)
+      @artist = artist
+      @title = title
       @active = false
+      @genre = nil
+      @instruments = {}
     end
 
     def active?
